@@ -129,10 +129,6 @@ exit:
 5. **Sair**:
    - Encerra o programa.
 
-### Observações
-- Certifique-se de que a IDE Mars4_5.jar está configurada corretamente para compilar e executar programas em MIPS.
-- Teste cada parte do programa individualmente para garantir que funciona conforme o esperado antes de integrá-las.
-
 ### Funções e Syscalls Utilizadas
 
 - `li $v0, 4`: Prepara o syscall para imprimir uma string.
