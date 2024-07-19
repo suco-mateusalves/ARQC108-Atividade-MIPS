@@ -1,9 +1,6 @@
 
 # MIPS Assembly Program Documentation
 
-## Arquitetura e Organização de Computadores - Prof. Ivo Calado
-### Atividade MIPS
-
 ### Programa em MIPS
 
 Este programa realiza as seguintes operações:
