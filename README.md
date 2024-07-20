@@ -12,7 +12,7 @@
 
 * Calcule o enésimo número par, dado um ${N}$ informado pelo usuário.
 
-### Sobre o programa:
+### 2) Sobre o programa:
 * Ao iniciar o programa deve apresentar um menu de opções, conforme abaixo:
 
   1 - Fahrenheit − > Celsius
