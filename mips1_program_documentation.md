@@ -1,16 +1,39 @@
-
 # MIPS Assembly Program Documentation
 
-### Programa em MIPS
+## Resumo
 
-Este programa realiza as seguintes operações:
+Este código MIPS implementa um menu com quatro opções:
+1. Converter Fahrenheit para Celsius. 
+2. Calcular o enésimo número de Fibonacci.
+3. Calcular o enésimo número par.
+4. Sair.
 
-1. Converte uma temperatura de Fahrenheit para Celsius.
-2. Calcula o enésimo termo da sequência de Fibonacci.
-3. Calcula o enésimo número par.
-4. Permite ao usuário sair do programa.
+## Descrição do Programa
 
-### Código
+1. **Menu Principal**:
+   - Exibe as opções para o usuário.
+   - Lê a escolha do usuário.
+
+2. **Conversão Fahrenheit para Celsius**:
+   - Lê a temperatura em Fahrenheit.
+   - Realiza a conversão usando a fórmula $\( C = \frac{5}{9} \times (F - 32) \)$.
+   - Exibe o resultado em Celsius.
+
+3. **Cálculo do N-ésimo termo da sequência de Fibonacci**:
+   - Lê o valor de N.
+   - Calcula o N-ésimo termo da sequência de Fibonacci.
+   - Exibe o resultado.
+
+4. **Cálculo do N-ésimo número par**:
+   - Lê o valor de N.
+   - Calcula o N-ésimo número par como $\( N \times 2 \)$.
+   - Exibe o resultado.
+
+5. **Sair**:
+   - Encerra o programa.
+
+## Segmento .data
+Definimos strings usadas para prompts e mensagens de menu.
 
 ```assembly
 .data
@@ -19,7 +42,13 @@ fahrenheit: .asciiz "Digite a temperatura em Fahrenheit: "
 n_prompt:   .asciiz "Digite o valor de N: "
 result:     .asciiz "Resultado: "
 newline:    .asciiz "\n"
+```
 
+## Segmento .text
+### Função Principal (`main`)
+Mostra o menu, lê a escolha do usuário e direciona para a função correspondente.
+
+```assembly
 .text
 main:
     li $v0, 4             # syscall para imprimir string
@@ -35,7 +64,12 @@ main:
     beq $t0, 3, enesimo_par
     beq $t0, 4, exit
     j main                # caso contrário, repete o menu
+```
 
+### Função `fahrenheit_to_celsius`
+Converte temperatura de Fahrenheit para Celsius.
+
+```assembly
 fahrenheit_to_celsius:
     li $v0, 4             # syscall para imprimir string
     la $a0, fahrenheit    # carregar o endereço da string de prompt de fahrenheit
@@ -47,13 +81,19 @@ fahrenheit_to_celsius:
 
     sub $t1, $t1, 32      # F - 32
     mul $t1, $t1, 5       # (F - 32) * 5
-    div $t1, $t1, 9       # ((F - 32) * 5) / 9
+    div $t1, 9            # ((F - 32) * 5) / 9
+    mflo $t1              # mover o quociente de $lo para $t1
     move $a0, $t1         # mover o resultado para $a0 para impressão
 
     li $v0, 1             # syscall para imprimir inteiro
     syscall
     j main                # voltar ao menu
+```
 
+### Função `fibonacci`
+Calcula o enésimo número de Fibonacci.
+
+```assembly
 fibonacci:
     li $v0, 4             # syscall para imprimir string
     la $a0, n_prompt      # carregar o endereço da string de prompt de N
@@ -80,7 +120,12 @@ fibonacci_done:
     li $v0, 1             # syscall para imprimir inteiro
     syscall
     j main                # voltar ao menu
+```
 
+### Função `enesimo_par`
+Calcula o enésimo número par.
+
+```assembly
 enesimo_par:
     li $v0, 4             # syscall para imprimir string
     la $a0, n_prompt      # carregar o endereço da string de prompt de N
@@ -96,37 +141,18 @@ enesimo_par:
     li $v0, 1             # syscall para imprimir inteiro
     syscall
     j main                # voltar ao menu
+```
 
+### Função `exit`
+Sai do programa.
+
+```assembly
 exit:
     li $v0, 10            # syscall para sair
     syscall
 ```
 
-### Descrição do Programa
-
-1. **Menu Principal**:
-   - Exibe as opções para o usuário.
-   - Lê a escolha do usuário.
-
-2. **Conversão Fahrenheit para Celsius**:
-   - Lê a temperatura em Fahrenheit.
-   - Realiza a conversão usando a fórmula $\( C = \frac{5}{9} \times (F - 32) \)$.
-   - Exibe o resultado em Celsius.
-
-3. **Cálculo do N-ésimo termo da sequência de Fibonacci**:
-   - Lê o valor de N.
-   - Calcula o N-ésimo termo da sequência de Fibonacci.
-   - Exibe o resultado.
-
-4. **Cálculo do N-ésimo número par**:
-   - Lê o valor de N.
-   - Calcula o N-ésimo número par como $\( N \times 2 \)$.
-   - Exibe o resultado.
-
-5. **Sair**:
-   - Encerra o programa.
-
-### Funções e Syscalls Utilizadas
+## Funções e Syscalls Utilizadas
 
 - `li $v0, 4`: Prepara o syscall para imprimir uma string.
 - `la $a0, <label>`: Carrega o endereço da string para o registrador `$a0`.
