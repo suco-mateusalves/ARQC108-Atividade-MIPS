@@ -110,7 +110,7 @@ exit:
 
 2. **Conversão Fahrenheit para Celsius**:
    - Lê a temperatura em Fahrenheit.
-   - Realiza a conversão usando a fórmula \( C = \frac{5}{9} \times (F - 32) \).
+   - Realiza a conversão usando a fórmula $\( C = \frac{5}{9} \times (F - 32) \)$.
    - Exibe o resultado em Celsius.
 
 3. **Cálculo do N-ésimo termo da sequência de Fibonacci**:
@@ -120,7 +120,7 @@ exit:
 
 4. **Cálculo do N-ésimo número par**:
    - Lê o valor de N.
-   - Calcula o N-ésimo número par como \( N \times 2 \).
+   - Calcula o N-ésimo número par como $\( N \times 2 \)$.
    - Exibe o resultado.
 
 5. **Sair**:
