@@ -1,5 +1,5 @@
 .data
-menu:       .asciiz "\n1 - Fahrenheit -> Celsius\n2 - Fibonacci\n3 - EnÈsimo par\n4 - Sair\nEscolha uma opcao: "
+menu:       .asciiz "\n1 - Fahrenheit -> Celsius\n2 - Fibonacci\n3 - En√©simo par\n4 - Sair\nEscolha uma opcao: "
 fahrenheit: .asciiz "Digite a temperatura em Fahrenheit: "
 n_prompt:   .asciiz "Digite o valor de N: "
 result:     .asciiz "Resultado: "
@@ -8,7 +8,7 @@ newline:    .asciiz "\n"
 .text
 main:
     li $v0, 4             # syscall para imprimir string
-    la $a0, menu          # carregar o endereÁo da string do menu
+    la $a0, menu          # carregar o endere√ßo da string do menu
     syscall
 
     li $v0, 5             # syscall para ler um inteiro
@@ -19,11 +19,11 @@ main:
     beq $t0, 2, fibonacci
     beq $t0, 3, enesimo_par
     beq $t0, 4, exit
-    j main                # caso contr·rio, repete o menu
+    j main                # caso contr√°rio, repete o menu
 
 fahrenheit_to_celsius:
     li $v0, 4             # syscall para imprimir string
-    la $a0, fahrenheit    # carregar o endereÁo da string de prompt de fahrenheit
+    la $a0, fahrenheit    # carregar o endere√ßo da string de prompt de fahrenheit
     syscall
 
     li $v0, 5             # syscall para ler um inteiro
@@ -32,8 +32,9 @@ fahrenheit_to_celsius:
 
     sub $t1, $t1, 32      # F - 32
     mul $t1, $t1, 5       # (F - 32) * 5
-    div $t1, $t1, 9       # ((F - 32) * 5) / 9
-    move $a0, $t1         # mover o resultado para $a0 para impress„o
+    div $t1, 9            # ((F - 32) * 5) / 9
+    mflo $t1              # mover o quociente de $lo para $t1
+    move $a0, $t1         # mover o resultado para $a0 para impress√£o
 
     li $v0, 1             # syscall para imprimir inteiro
     syscall
@@ -41,7 +42,7 @@ fahrenheit_to_celsius:
 
 fibonacci:
     li $v0, 4             # syscall para imprimir string
-    la $a0, n_prompt      # carregar o endereÁo da string de prompt de N
+    la $a0, n_prompt      # carregar o endere√ßo da string de prompt de N
     syscall
 
     li $v0, 5             # syscall para ler um inteiro
@@ -60,7 +61,7 @@ fibonacci_loop:
     j fibonacci_loop
 
 fibonacci_done:
-    move $a0, $t2         # mover o resultado para $a0 para impress„o
+    move $a0, $t2         # mover o resultado para $a0 para impress√£o
 
     li $v0, 1             # syscall para imprimir inteiro
     syscall
@@ -68,15 +69,15 @@ fibonacci_done:
 
 enesimo_par:
     li $v0, 4             # syscall para imprimir string
-    la $a0, n_prompt      # carregar o endereÁo da string de prompt de N
+    la $a0, n_prompt      # carregar o endere√ßo da string de prompt de N
     syscall
 
     li $v0, 5             # syscall para ler um inteiro
     syscall
     move $t1, $v0         # mover o valor lido para $t1
 
-    mul $t1, $t1, 2       # EnÈsimo n˙mero par = N * 2
-    move $a0, $t1         # mover o resultado para $a0 para impress„o
+    mul $t1, $t1, 2       # En√©simo n√∫mero par = N * 2
+    move $a0, $t1         # mover o resultado para $a0 para impress√£o
 
     li $v0, 1             # syscall para imprimir inteiro
     syscall
