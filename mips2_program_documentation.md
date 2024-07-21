@@ -5,12 +5,36 @@
 - Luiz Claudio Vieira da Silva Junior
 - Mateus Alves dos Santos
 
-## Descrição
+## Resumo
 Este código MIPS implementa um menu com quatro opções:
 1. Converter Fahrenheit para Celsius.
 2. Calcular o enésimo número de Fibonacci.
 3. Calcular o enésimo número par.
 4. Sair.
+
+## Descrição do Programa
+
+1. **Menu Principal**:
+   - Exibe as opções para o usuário.
+   - Lê a escolha do usuário.
+
+2. **Conversão Fahrenheit para Celsius**:
+   - Lê a temperatura em Fahrenheit.
+   - Realiza a conversão usando a fórmula $\( C = \frac{5}{9} \times (F - 32) \)$.
+   - Exibe o resultado em Celsius.
+
+3. **Cálculo do N-ésimo termo da sequência de Fibonacci**:
+   - Lê o valor de N.
+   - Calcula o N-ésimo termo da sequência de Fibonacci.
+   - Exibe o resultado.
+
+4. **Cálculo do N-ésimo número par**:
+   - Lê o valor de N.
+   - Calcula o N-ésimo número par como $\( N \times 2 \)$.
+   - Exibe o resultado.
+
+5. **Sair**:
+   - Encerra o programa.
 
 ## Segmento .data
 Definimos strings usadas para prompts e mensagens de menu, bem como valores de ponto flutuante para a conversão de Fahrenheit para Celsius.
