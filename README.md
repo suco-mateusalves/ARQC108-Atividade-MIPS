@@ -1,5 +1,8 @@
 # Arquitetura e Organização de Computadores - Prof. Ivo Calado
 ## Atividade MIPS
+
+Atividade realizada para composição da nota da disciplina Arquitetura e Organização de Computadores ministrada pelo Prof. Ivo Calado do curso BACHARELADO EM SISTEMAS DE INFORMAÇÃO - IFAL Campus MACEIÓ.
+
 ### 1) Utilizando a linguagem MIPS crie um programa que realize as seguintes operações:
 
 * Leia uma temperatura em Fahrenheit, converta para Celsius e a exiba. Fahrenheit e Celsius se relacionam da seguinte forma:
