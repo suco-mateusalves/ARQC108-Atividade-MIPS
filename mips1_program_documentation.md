@@ -1,4 +1,9 @@
-# MIPS Assembly Program Documentation
+# Documentação do Código MIPS
+
+## Autores
+- Jose Gouveia da Silva Neto
+- Luiz Claudio Vieira da Silva Junior
+- Mateus Alves dos Santos
 
 ## Resumo
 
