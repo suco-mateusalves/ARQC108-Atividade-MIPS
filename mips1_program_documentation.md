@@ -45,7 +45,6 @@ Definimos strings usadas para prompts e mensagens de menu.
 menu:       .asciiz "\n1 - Fahrenheit -> Celsius\n2 - Fibonacci\n3 - Enésimo par\n4 - Sair\nEscolha uma opcao: "
 fahrenheit: .asciiz "Digite a temperatura em Fahrenheit: "
 n_prompt:   .asciiz "Digite o valor de N: "
-result:     .asciiz "Resultado: "
 newline:    .asciiz "\n"
 ```
 
