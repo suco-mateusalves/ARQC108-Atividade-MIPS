@@ -2,7 +2,6 @@
 menu:       	.asciiz "\n1 - Fahrenheit -> Celsius\n2 - Fibonacci\n3 - Enésimo par\n4 - Sair\nEscolha uma opcao: "
 fahrenheit: 	.asciiz "Digite a temperatura em Fahrenheit: "
 entrada_int:	.asciiz "Digite o valor de N: "
-resultado:     	.asciiz "Resultado: "
 newline:    	.asciiz "\n"
 
 .text
