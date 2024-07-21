@@ -1,4 +1,4 @@
-# Documentação do Código MIPS
+# Documentação do Código MIPS1 - Apenas manipula .integer
 
 ## Autores
 - Jose Gouveia da Silva Neto
