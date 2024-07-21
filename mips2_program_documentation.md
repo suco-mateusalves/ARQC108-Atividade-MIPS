@@ -1,4 +1,4 @@
-# Documentação do Código MIPS
+# Documentação do Código MIPS2 - Com manipulação de .float
 
 ## Autores
 - Jose Gouveia da Silva Neto
