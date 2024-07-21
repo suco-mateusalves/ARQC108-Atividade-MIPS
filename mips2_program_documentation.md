@@ -174,21 +174,23 @@ saida:
 4. `enesimo_par`: Calcula o enésimo número par.
 5. `saida`: Sai do programa.
 
-## Lista de Syscalls Utilizadas
-1. **li $v0, 4**: Imprimir string (syscall 4)
-   - Utilizado em: `main`, `fahrenheit_to_celsius`, `fibonacci`, `enesimo_par`
+## Funções e Syscalls Utilizadas
 
-2. **li $v0, 5**: Ler inteiro (syscall 5)
-   - Utilizado em: `main`, `fibonacci`, `enesimo_par`
-
-3. **li $v0, 6**: Ler ponto flutuante (syscall 6)
-   - Utilizado em: `fahrenheit_to_celsius`
-
-4. **li $v0, 2**: Imprimir ponto flutuante (syscall 2)
-   - Utilizado em: `fahrenheit_to_celsius`
-
-5. **li $v0, 1**: Imprimir inteiro (syscall 1)
-   - Utilizado em: `fibonacci`, `enesimo_par`
-
-6. **li $v0, 10**: Sair do programa (syscall 10)
-   - Utilizado em: `saida`
+- `li $v0, 4`: Prepara o syscall para imprimir uma string.
+- `la $a0, <label>`: Carrega o endereço da string para o registrador `$a0`.
+- `syscall`: Realiza a chamada do sistema.
+- `li $v0, 5`: Prepara o syscall para ler um inteiro.
+- `move $t0, $v0`: Move o valor lido para um registrador temporário `$t0`.
+- `beq $t0, <value>, <label>`: Compara `$t0` com um valor e salta para a etiqueta se forem iguais.
+- `j <label>`: Salta para a etiqueta especificada.
+- `li $v0, 6`: Prepara o syscall para ler um ponto flutuante.
+- `mov.s $f1, $f0`: Move o valor lido para o registrador de ponto flutuante `$f1`.
+- `lwc1 $f3, 0($t1)`: Carrega um valor de ponto flutuante do endereço `$t1` para `$f3`.
+- `sub.s $f1, $f1, $f3`: Realiza a subtração de ponto flutuante.
+- `mul.s $f1, $f1, $f3`: Realiza a multiplicação de ponto flutuante.
+- `div.s $f1, $f1, $f3`: Realiza a divisão de ponto flutuante.
+- `mov.s $f12, $f1`: Move o valor para o registrador de ponto flutuante `$f12` para impressão.
+- `li $v0, 2`: Prepara o syscall para imprimir um ponto flutuante.
+- `li $v0, 1`: Prepara o syscall para imprimir um inteiro.
+- `mul $t1, $t1, 2`: Realiza a multiplicação de um inteiro.
+- `li $v0, 10`: Prepara o syscall para sair do programa.
